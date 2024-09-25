@@ -1,0 +1,14 @@
+name: flashchat
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/code  # Sync local development directory with the container
+    ports:
+      - "8000:8000" 
+
+networks:
+  default:
+    driver: bridge
