@@ -20,7 +20,7 @@ const Chat = () => {
     setMessages([...messages, { user: userMessage, bot: '...' }]); // Add user message with bot placeholder
   
     try {
-      const response = await fetch('http://localhost:8001/chat', {
+      const response = await fetch('https://squid-app-ttamb.ondigitalocean.app/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: userMessage }),
