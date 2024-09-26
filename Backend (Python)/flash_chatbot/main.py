@@ -5,6 +5,10 @@ from flash_chatbot import settings
 from fastapi import FastAPI,HTTPException
 from contextlib import asynccontextmanager
 import textwrap
+from pydantic import BaseModel
+
+class Chat(BaseModel):
+    prompt: str
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -12,12 +16,12 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan,
-              title="Zia Mart User Service...",
+              title="Ujjan AI API Service...",
               version='1.0.0'
               )
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+# app = FastAPI()
 
 # Add CORS middleware
 app.add_middleware(
@@ -48,11 +52,11 @@ chat = model.start_chat(history=[])
 chat
 
 @app.post("/chat")
-async def chatbot(Prompt: str):
+async def chatbot(Prompt: Chat):
     try:
-        response = chat.send_message(Prompt)
+        response = chat.send_message(Prompt.prompt)
         print(response.text)
           # Ensure this is correct
-        return response.text  # Return as a dictionary
+        return {"text": response.text}  # Return as a dictionary
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
