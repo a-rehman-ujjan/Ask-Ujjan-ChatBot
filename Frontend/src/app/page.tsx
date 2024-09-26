@@ -35,7 +35,7 @@ const Chat = () => {
       const data = await response.json();
       setMessages((prevMessages) =>
         prevMessages.map((msg, i) =>
-          i === prevMessages.length - 1 ? { ...msg, bot: data } : msg
+          i === prevMessages.length - 1 ? { ...msg, bot: data.text } : msg
         )
       );
   
