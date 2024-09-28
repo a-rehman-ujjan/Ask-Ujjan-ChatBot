@@ -70,10 +70,10 @@ const Chat = () => {
               {/* Bot message */}
               <div className="self-start p-3 m-2 text-gray-300 rounded-lg max-w-full min-w-80 mt-2 flex items-top space-x-2">
                 {/* <p className="text-sm">Bot:</p> */}
-                <img src="/favicon.ico" alt="favicon" className="w-6 h-6 rounded-full" />
+                <img src="/favicon.ico" alt="favicon" className="w-8 h-8 rounded-full" />
                 {/* <ReactMarkdown className="prose">{message.bot}</ReactMarkdown> */}
                 {message.bot === '...' ? (
-                  <p className="text-lg">...</p>
+                  <p className="animate-pulse opacity-0 transition-opacity duration-1000 text-2xl">...</p>
                 ) : (
                   <MDR content={message.bot} />
                 )}
