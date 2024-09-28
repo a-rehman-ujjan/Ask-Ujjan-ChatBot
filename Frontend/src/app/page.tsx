@@ -72,7 +72,11 @@ const Chat = () => {
                 {/* <p className="text-sm">Bot:</p> */}
                 <img src="/favicon.ico" alt="favicon" className="w-6 h-6 rounded-full" />
                 {/* <ReactMarkdown className="prose">{message.bot}</ReactMarkdown> */}
-                <MDR content={message.bot} />
+                {message.bot === '...' ? (
+                  <p className="text-lg">...</p>
+                ) : (
+                  <MDR content={message.bot} />
+                )}
               </div>
               </div>
             ))}
