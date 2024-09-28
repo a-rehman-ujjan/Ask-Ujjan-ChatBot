@@ -1,4 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* global.css or specific styles for Markdown */
+.markdown-content {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.4;
+  white-space: pre-line;
+  font-size: 1.125rem;
+  margin: 0;
+  padding: 0;
+}
+
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+  color: #fff;
+  font-weight: bold;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.markdown-content strong {
+  font-weight: bold;
+}
