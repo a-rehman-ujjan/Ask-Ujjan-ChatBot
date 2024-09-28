@@ -6,6 +6,8 @@ from fastapi import FastAPI,HTTPException
 from contextlib import asynccontextmanager
 import textwrap
 from pydantic import BaseModel
+from google.generativeai.types.generation_types import GenerateContentResponse
+import re
 
 class Chat(BaseModel):
     prompt: str
@@ -52,9 +54,9 @@ chat
 @app.post("/chat")
 async def chatbot(Prompt: Chat):
     try:
-        response = chat.send_message(Prompt.prompt)
+        response: GenerateContentResponse = chat.send_message(Prompt.prompt)
         print(response.text)
           # Ensure this is correct
-        return {"text": response.text}  # Return as a dictionary
+        return to_markdown(response.text)  # Return as a dictionary
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
