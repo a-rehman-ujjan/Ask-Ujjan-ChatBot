@@ -22,7 +22,7 @@ const Chat = () => {
   
     try {
       console.log("Try entered")
-      const response = await fetch('https://miniature-happiness-56q6vqj5676hvg9w-8000.app.github.dev/chat', {
+      const response = await fetch('https://squid-app-ttamb.ondigitalocean.app/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: userMessage }),
