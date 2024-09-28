@@ -6,7 +6,7 @@ const MDR = ({ content }) => {
   content = content.replace(/\n\s*\n/g, '\n');
   return (
     <div className="markdown-content">
-      <ReactMarkdown className={'-mt-7'}>{content}</ReactMarkdown>
+      <ReactMarkdown className={'-mt-6'}>{content}</ReactMarkdown>
     </div>
   );
 };
