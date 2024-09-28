@@ -81,7 +81,6 @@ const Chat = () => {
         </div>
       </div>
 
-
       <div className="bg-[#17181D] p-4 border-t border-[#FCD9B8] flex justify-center">
         <form onSubmit={handleSubmit} className="flex items-center space-x-4 w-full max-w-3xl">
           <textarea
